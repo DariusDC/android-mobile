@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Api {
 
-    private val url = "http://192.168.0.131:3000/"
+    private val url = "http://172.20.10.3:3000/"
 
     private var gson = GsonBuilder()
         .setLenient()

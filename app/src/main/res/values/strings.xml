@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidApplication2</string>
+    <string name="app_name">My Hotels</string>
     <string name="items">Items</string>
     <string name="logout">Logout</string>
     <string name="login">Login</string>
