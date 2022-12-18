@@ -4,17 +4,18 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.darius.android_app.auth.ui.LoginScreen
-import com.darius.android_app.core.data.remote.Api
-import com.darius.android_app.core.ui.UserPreferencesViewModel
-import com.darius.android_app.item.ui.item.ItemScreen
-import com.darius.android_app.item.ui.items.ItemsScreen
+import com.darius.android_app.screens.login.LoginScreen
+import com.darius.android_app.networking.Api
+import com.darius.android_app.screens.UserPreferencesViewModel
+import com.darius.android_app.screens.item.ItemScreen
+import com.darius.android_app.screens.items.ItemsScreen
 
 const val authRoute = "auth"
 const val hotelRoute = "hotels"
@@ -64,6 +65,15 @@ fun AppNavHost(context: Context) {
             LoginScreen(onClose = {
                 navController.navigate(hotelRoute)
             })
+        }
+    }
+
+    LaunchedEffect(userPreferencesUIState.token) {
+        if (userPreferencesUIState.token.isNotEmpty()) {
+            Api.tokenInterceptor.token = userPreferencesUIState.token
+            navController.navigate(hotelRoute) {
+                popUpTo(0)
+            }
         }
     }
 }

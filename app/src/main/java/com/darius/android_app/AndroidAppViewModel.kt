@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.darius.android_app.core.data.UserPreferences
-import com.darius.android_app.core.data.UserPreferencesRepository
-import com.darius.android_app.item.data.HotelRepository
+import com.darius.android_app.model.UserPreferences
+import com.darius.android_app.repo.UserPreferencesRepository
+import com.darius.android_app.repo.HotelRepository
 import kotlinx.coroutines.launch
 
 class AndroidAppViewModel(
